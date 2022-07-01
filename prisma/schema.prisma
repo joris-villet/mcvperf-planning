@@ -9,3 +9,24 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Client {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  firstname String?  @db.Text
+  lastname  String?  @db.Text
+  email String? @db.Text
+  phone String? @db.Text
+  car String?  @db.Text
+  rdv DateTime?
+}
+
+model Rendezvous {
+  id Int @id @default(autoincrement())
+  date DateTime?
+  purpose String?
+  car String?  @db.Text
+  email String? @db.Text
+  phone String? @db.Text
+}

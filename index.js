@@ -1,6 +1,8 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const path = require('path')
-
 const fastify = require('fastify')({
   logger: true
 })
@@ -21,6 +23,9 @@ const start = async () => {
     // })
 
     await fastify.register(require('./app/routes/views.js'))
+    await fastify.register(require('./app/routes/client.js'))
+    await fastify.register(require('./app/routes/rdv.js'))
+    
     await fastify.listen({ port: 3333 })
 
   } catch (err) {
@@ -31,11 +36,4 @@ const start = async () => {
 }
 
 start();
-
-
-// fastify.route({
-//   url: '/',
-//   method: 'GET',
-//   handler: (request, reply) => reply.view('./app/views/home.hbs' , { title: "mcvperf-planning" })
-// })
 
