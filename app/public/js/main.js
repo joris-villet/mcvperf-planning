@@ -14,3 +14,10 @@ btn.addEventListener('click', (event) => {
   // request ici
 })
 
+
+const iconBook = document.querySelector('.fa-address-book');
+if (window.location.pathname === "/rendez-vous") {
+  iconBook.style.color = "#fff";
+  iconBook.style.opacity = "1";
+}
+
