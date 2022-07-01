@@ -1,0 +1,19 @@
+{
+  "name": "mcvperf-planning-fastify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/static": "^6.4.0",
+    "@fastify/view": "^7.0.0",
+    "fastify": "^4.2.0",
+    "handlebars": "^4.7.7",
+    "prisma": "^4.0.0"
+  }
+}
