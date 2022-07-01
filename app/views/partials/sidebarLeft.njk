@@ -1,0 +1,54 @@
+<style>
+  .sidebar__left {
+		min-height: 100vh;
+		background: rgb(73,128,246);
+		background: linear-gradient(90deg, rgba(73,128,246,1) 0%, rgba(56,65,249,1) 80%); 
+    box-shadow: 4px 0px 4px rgb(0,0,0,0.3);
+	}
+
+  .sidebar__left__ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar__left__ul__item {
+    margin: 1.5rem auto;
+  }
+
+  .sidebar__left__ul__item i {
+    font-size: 3rem;
+    color: rgb(197, 197, 197);
+    cursor: pointer;
+    opacity: .7;
+  }
+
+  .sidebar__left__ul__item i:hover {
+    color: #fff;
+    opacity: 1;
+  }
+</style>
+
+
+
+<div class="sidebar__left">
+  <nav>
+    <ul class="sidebar__left__ul">
+      <li class="sidebar__left__ul__item">
+        <a href="/rendez-vous">
+          <i class="fa-solid fa-address-book"></i>
+        </a>
+      </li>
+      <li class="sidebar__left__ul__item">
+        <i class="fa-regular fa-calendar"></i>
+      </li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </nav>
+</div>
+
