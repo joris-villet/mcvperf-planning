@@ -4,9 +4,19 @@ const prisma = new PrismaClient()
 module.exports = {
 
   create: async (request, reply) => {
-    console.log(request.body)
-    const rdv = await prisma.rendezvous.create({ data: request.body })
+
+    const rdv = await prisma.rendezvous.create({
+      data: {
+        name: request.body.name,
+        car: request.body.car,
+        purpose: request.body.purpose,
+        phone: request.body.phone,
+        date: new Date(request.body.date),
+      }
+    })
+
     reply.send(rdv)
+   
   },
 
   read: async (request, reply) => {

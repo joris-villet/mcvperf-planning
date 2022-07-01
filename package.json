@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "compil": "browserify ./app/public/js/main.js -o ./app/public/js/bundle.js"
   },
   "keywords": [],
   "author": "",
@@ -14,10 +15,12 @@
     "@fastify/static": "^6.4.0",
     "@fastify/view": "^7.0.0",
     "@prisma/client": "^4.0.0",
+    "axios": "^0.27.2",
     "fastify": "^4.2.0",
     "nunjucks": "^3.2.3"
   },
   "devDependencies": {
+    "browserify": "^17.0.0",
     "dotenv": "^16.0.1",
     "nodemon": "^2.0.18",
     "prisma": "^4.0.0"

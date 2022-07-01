@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const path = require('path')
 const fastify = require('fastify')({
-  logger: false
+  logger: true
 })
 
 
