@@ -1,17 +1,23 @@
 if (process.env.NODE_ENV !== 'production') {
-  
+
   require('dotenv').config()
 
   const fs = require('fs');
   const distDir = fs.readdirSync('./vue/dist', 'utf-8')
   console.log("result dist dir => ", distDir)
 
-  if (distDir.length === 1) {
+  if (!distDir.length) {
     console.log("****************** NO INDEX.HTML && ASSETS *****************");
   } 
   else {
 
     fs.rename('./vue/dist/index.html', './app/public/index.html', (err) => {
+      if (err) {
+        console.log(err)
+      }
+    })
+
+    fs.rename('./vue/dist/favicon.ico', './app/public/favicon.ico', (err) => {
       if (err) {
         console.log(err)
       }
