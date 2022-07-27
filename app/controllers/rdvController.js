@@ -5,13 +5,27 @@ module.exports = {
 
   create: async (request, reply) => {
 
+    // const rdv = await prisma.rendezvous.create({
+    //   data: {
+    //     name: request.body.name || "",
+    //     car: request.body.car || "",
+    //     purpose: request.body.purpose || "",
+    //     phone: request.body.phone || "",
+    //     date: new Date(request.body.date) || "",
+    //   }
+    // })
+
+    console.log(request.body)
+
+    // reply.send(rdv)
     const rdv = await prisma.rendezvous.create({
       data: {
-        name: request.body.name,
-        car: request.body.car,
-        purpose: request.body.purpose,
-        phone: request.body.phone,
-        date: new Date(request.body.date),
+        start: new Date(request.body.start) || "",
+        end: new Date(request.body.end) || "",
+        title: request.body.title || "",
+        content: request.body.content || "",
+        phone: request.body.phone || "",
+        name: request.body.name || ""
       }
     })
 

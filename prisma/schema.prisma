@@ -24,9 +24,10 @@ model Client {
 
 model Rendezvous {
   id Int @id @default(autoincrement())
-  name String? 
-  purpose String?
-  car String? 
+  name String?
+  start DateTime
+  end DateTime
+  title String?
+  content String? 
   phone String? 
-  date DateTime?
 }

@@ -1,0 +1,40 @@
+{% include "./partials/head.njk" %}
+<body>
+  {% include "./partials/header.njk" %}
+  <div class="dashboard">
+    {% include "./partials/sidebarLeft.njk" %}
+    <div class="content">
+
+      <a href="/">
+        <button><- retour</button>
+      </a>
+
+      <h2 class="today"></h2>
+      <table id="calendar">
+        {# <thead>
+          <tr>
+            <td>Lundi</td>
+            <td>Mardi</td>
+            <td>Mercredi</td>
+            <td>Jeudi</td>
+            <td>Vendredi</td>
+            <td>Samedi</td>
+            <td>Dimanche</td>
+          </tr>
+        </thead> #}
+      </table>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

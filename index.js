@@ -4,8 +4,33 @@ if (process.env.NODE_ENV !== 'production') {
 
 const path = require('path')
 const fastify = require('fastify')({
-  logger: true
+  logger: false
 })
+
+
+// MOVE VUEJS BUILD INTO STATIC PUBLIC FOLDER
+const fs = require('fs');
+const distDir = fs.readdirSync('./vue/dist', 'utf-8')
+console.log("result dist dir => ", distDir)
+
+if (distDir.length === 1) {
+  console.log("****************** NO INDEX.HTML && ASSETS *****************");
+} 
+else {
+
+  fs.rename('./vue/dist/index.html', './app/public/index.html', (err) => {
+    if (err) {
+      console.log(err)
+    }
+  })
+  
+  fs.rename('./vue/dist/assets', './app/public/assets', (err) => {
+    if (err) {
+      console.log(err)
+    }
+  })
+}
+
 
 
 const start = async () => {
@@ -20,7 +45,11 @@ const start = async () => {
 
     await fastify.register(require('@fastify/static'), {
       root: path.join(__dirname, './app/public'),
-      prefix: '/public/',
+      prefix: '/',
+    })
+
+    await fastify.register(require('@fastify/cors'), { 
+      // put your options here
     })
 
     await fastify.register(require('./app/routes/views.js'))
