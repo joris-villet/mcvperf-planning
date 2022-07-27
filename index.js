@@ -1,5 +1,29 @@
 if (process.env.NODE_ENV !== 'production') {
+  
   require('dotenv').config()
+
+  const fs = require('fs');
+  const distDir = fs.readdirSync('./vue/dist', 'utf-8')
+  console.log("result dist dir => ", distDir)
+
+  if (distDir.length === 1) {
+    console.log("****************** NO INDEX.HTML && ASSETS *****************");
+  } 
+  else {
+
+    fs.rename('./vue/dist/index.html', './app/public/index.html', (err) => {
+      if (err) {
+        console.log(err)
+      }
+    })
+    
+    fs.rename('./vue/dist/assets', './app/public/assets', (err) => {
+      if (err) {
+        console.log(err)
+      }
+    })
+  }
+
 }
 
 const path = require('path')
@@ -9,27 +33,27 @@ const fastify = require('fastify')({
 
 
 // MOVE VUEJS BUILD INTO STATIC PUBLIC FOLDER
-const fs = require('fs');
-const distDir = fs.readdirSync('./vue/dist', 'utf-8')
-console.log("result dist dir => ", distDir)
+// const fs = require('fs');
+// const distDir = fs.readdirSync('./vue/dist', 'utf-8')
+// console.log("result dist dir => ", distDir)
 
-if (distDir.length === 1) {
-  console.log("****************** NO INDEX.HTML && ASSETS *****************");
-} 
-else {
+// if (distDir.length === 1) {
+//   console.log("****************** NO INDEX.HTML && ASSETS *****************");
+// } 
+// else {
 
-  fs.rename('./vue/dist/index.html', './app/public/index.html', (err) => {
-    if (err) {
-      console.log(err)
-    }
-  })
+//   fs.rename('./vue/dist/index.html', './app/public/index.html', (err) => {
+//     if (err) {
+//       console.log(err)
+//     }
+//   })
   
-  fs.rename('./vue/dist/assets', './app/public/assets', (err) => {
-    if (err) {
-      console.log(err)
-    }
-  })
-}
+//   fs.rename('./vue/dist/assets', './app/public/assets', (err) => {
+//     if (err) {
+//       console.log(err)
+//     }
+//   })
+// }
 
 
 
